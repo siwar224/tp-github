@@ -24,7 +24,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      # Autres étapes de tests
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      - name: Run unit tests
+        run: mvn test # Exemple pour exécuter les tests unitaires avec Maven
 
   deployment:
     name: Deployment
