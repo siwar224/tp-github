@@ -18,7 +18,7 @@ public class Calculatrice extends JFrame {
         String[] tab_string = {"1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "=", "C", "+", "-", "*", "/"};
         JButton[] tab_button = new JButton[tab_string.length]; // long tab-1
         
-        private JLabel ecran = new JLabel(); // affichage
+        JLabel ecran = new JLabel(); // affichage
         private Dimension dim = new Dimension(50, 40); // (Largeur chiffre, hauteur chiffre) 
         private Dimension dim2 = new Dimension(50, 31); // (Largeur symbole, hauteur symbole)
         private double chiffre1;
