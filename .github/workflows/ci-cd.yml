@@ -28,8 +28,8 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-      - name: Run unit tests
-        run: mvn test # Exemple pour exécuter les tests unitaires avec Maven
+      - name: Build with Maven
+        run: mvn -B clean test # Exécuter les tests avec Maven et JUnit
 
   deployment:
     name: Deployment
