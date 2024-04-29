@@ -53,7 +53,7 @@ public class Calculatrice extends JFrame {
                 JPanel panEcran = new JPanel();
                 panEcran.setPreferredSize(new Dimension(220, 30)); //(Largeur, Hauteur cadre)
 
-                
+                panEcran.setBackground(Color.LIGHT_GRAY);
                 for(int i = 0; i < tab_string.length; i++)
                 {
                     tab_button[i] = new JButton(tab_string[i]);		// cr�ation des boutons
