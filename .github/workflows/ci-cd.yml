@@ -24,5 +24,5 @@ jobs:
 
       - name: Compile and run tests
         run: |
-          javac -cp .:/path/to/junit.jar *.java
-          java -cp .:/path/to/junit.jar:/path/to/hamcrest-core.jar org.junit.runner.JUnitCore CalculatriceTest
+          javac -cp .:"C:\Users\siwar\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar" *.java
+          java -cp .:"C:\Users\siwar\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar":"C:\Users\siwar\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar" org.junit.runner.JUnitCore CalculatriceTest
