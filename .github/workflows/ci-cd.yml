@@ -1,9 +1,9 @@
 name: CI/CD Pipeline
 
 on:
-  push: # Déclenché sur chaque push
+  push:
     branches:
-      - main # Sur la branche principale
+      - master # Déclenché sur chaque push sur la branche master
 
 jobs:
   build:
