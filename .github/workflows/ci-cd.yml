@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - master
+      - master 
 
 jobs:
   build:
@@ -16,8 +16,8 @@ jobs:
       - name: Setup Java 11
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
-          distribution: 'openjdk'
+          java-version: '11'  # Specify the Java version
+          distribution: 'jdk'  # Use the default 'jdk' distribution
 
       - name: Build application (replace with your build steps)
         run: |
