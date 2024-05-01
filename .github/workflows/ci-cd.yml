@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
@@ -40,3 +40,21 @@ jobs:
 
     - name: Run Tests
       run: mvn test
+
+  deployment:
+    name: Deployment
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.Clé SSH de mon PC }}
+
+    - name: Deploy to Server
+      run: |
+        scp -r C:\tp-github siwar@192.168.1.102:C:\
