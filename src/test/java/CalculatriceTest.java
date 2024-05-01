@@ -1,45 +1,46 @@
-import static org.junit.Assert.assertEquals;
+package test.java;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
+import main.java.resources.Calculatrice;
 
 public class CalculatriceTest {
+    private Calculatrice calculatrice;
 
-	@Test
-	public void testAdditionWithDecimals() {
-	    // Set up the calculator
-	    Calculatrice calculatrice = new Calculatrice();
+    @Before
+    public void setUp() {
+        calculatrice = new Calculatrice();
+    }
 
-	    // Enter the first operand (decimal)
-	    calculatrice.ecran.setText("2.5");
-	    calculatrice.tab_button[13].doClick(); // Plus button
+    @Test
+    public void testAddition() {
+        assertEquals(4.0, calculatrice.calculer('+', 2.0, 2.0), 0.001);
+    }
 
-	    // Enter the second operand (decimal)
-	    calculatrice.ecran.setText("3.7");
-	    calculatrice.tab_button[11].doClick(); // Equals button
+    @Test
+    public void testSoustraction() {
+        assertEquals(2.0, calculatrice.calculer('-', 4.0, 2.0), 0.001);
+    }
 
-	    // Verify the result
-	    assertEquals(6.2, Double.parseDouble(calculatrice.ecran.getText()), 0.001);
-	}
-	
-	@Test
-	public void testSubtraction() {
-	    Calculatrice calculatrice = new Calculatrice();
+    @Test
+    public void testMultiplication() {
+        assertEquals(6.0, calculatrice.calculer('*', 3.0, 2.0), 0.001);
+    }
 
-	  // Set up the calculator
-	  calculatrice = new Calculatrice();
+    @Test
+    public void testDivision() {
+        assertEquals(2.0, calculatrice.calculer('/', 4.0, 2.0), 0.001);
+    }
 
-	  // Enter the first operand
-	  calculatrice.ecran.setText("10");
-	  calculatrice.tab_button[14].doClick(); // Minus button
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivisionParZero() {
+        calculatrice.calculer('/', 4.0, 0.0);
+    }
 
-	  // Enter the second operand
-	  calculatrice.ecran.setText("5");
-	  calculatrice.tab_button[11].doClick(); // Equals button
-
-	  // Verify the result
-	  assertEquals(5.0, Double.parseDouble(calculatrice.ecran.getText()), 0.001);
-	}
-
-
+    @Test(expected = IllegalArgumentException.class)
+    public void testOperateurInvalide() {
+        calculatrice.calculer('%', 4.0, 2.0);
+    }
 }
